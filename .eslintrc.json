@@ -44,13 +44,17 @@
     ],
     "@stylistic/object-curly-newline": [
       "warn",
-      { "multiline": true, "minProperties": 2 }
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }
     ],
     "@stylistic/object-curly-spacing": ["warn", "always"],
     "@stylistic/function-paren-newline": ["warn", { "minItems": 2 }],
     "@stylistic/function-call-argument-newline": ["warn", "consistent"],
     "@stylistic/arrow-parens": ["warn", "always"],
-    "@stylistic/jsx-closing-bracket-location": ["warn", "tag-aligned"],
     "@stylistic/comma-dangle": ["warn", "always-multiline"],
     "@stylistic/max-statements-per-line": ["warn", { "max": 1 }],
     "@stylistic/max-len": [
@@ -62,7 +66,13 @@
         "ignoreStrings": true
       }
     ],
-    "@stylistic/jsx-closing-tag-location": "warn",
+    "@stylistic/jsx-closing-bracket-location": ["warn", "tag-aligned"],
+    "@stylistic/jsx-closing-tag-location": ["warn"],
+    "@stylistic/jsx-max-props-per-line": [
+      "warn",
+      { "maximum": { "single": 3, "multi": 1 } }
+    ],
+    "@stylistic/jsx-first-prop-new-line": ["warn", "multiline"],
     "@stylistic/lines-around-comment": [
       "warn",
       {
