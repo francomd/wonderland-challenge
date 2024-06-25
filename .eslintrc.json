@@ -23,19 +23,19 @@
         "SwitchCase": 1
       }
     ],
+    "@stylistic/jsx-quotes": ["warn", "prefer-double"],
     "@stylistic/quotes": [
       "warn",
       "single",
       { "avoidEscape": true, "allowTemplateLiterals": true }
     ],
-    "@stylistic/jsx-quotes": ["warn", "prefer-double"],
     "@stylistic/array-element-newline": [
       "warn",
-      { "multiline": true, "minItems": 2 }
+      { "multiline": true, "minItems": 3 }
     ],
     "@stylistic/array-bracket-newline": [
       "warn",
-      { "multiline": true, "minItems": 2 }
+      { "multiline": true, "minItems": 3 }
     ],
     "@stylistic/implicit-arrow-linebreak": ["warn", "beside"],
     "@stylistic/object-property-newline": [
@@ -45,14 +45,14 @@
     "@stylistic/object-curly-newline": [
       "warn",
       {
-        "ObjectExpression": "always",
+        "ObjectExpression": { "multiline": true, "minProperties": 3 },
         "ObjectPattern": { "multiline": true },
         "ImportDeclaration": "never",
         "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }
     ],
     "@stylistic/object-curly-spacing": ["warn", "always"],
-    "@stylistic/function-paren-newline": ["warn", { "minItems": 2 }],
+    "@stylistic/function-paren-newline": ["warn", { "minItems": 3 }],
     "@stylistic/function-call-argument-newline": ["warn", "consistent"],
     "@stylistic/arrow-parens": ["warn", "always"],
     "@stylistic/comma-dangle": ["warn", "always-multiline"],

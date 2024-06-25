@@ -1,3 +1,4 @@
+import { Web3Provider } from '@/providers/Web3Provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Web3Provider>{children}</Web3Provider>
+      </body>
     </html>
   );
 }
