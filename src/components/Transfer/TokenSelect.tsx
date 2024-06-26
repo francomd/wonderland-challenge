@@ -15,6 +15,7 @@ export default function TokenSelect({
     <label htmlFor="token">
       Select token
       <select
+        id="token"
         name="token"
         value={selected}
         onChange={(e) => onSelect(e.target.value as TToken)}

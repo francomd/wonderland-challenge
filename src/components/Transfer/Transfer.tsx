@@ -76,8 +76,6 @@ export default function Transfer() {
       <MessagesAlert messages={messages} />
       <div>
         <AddressInput
-          inputName="targetAddress"
-          inputLabel="Target wallet"
           value={targetAddress}
           onChange={handleChangeAddresInput}
         />
@@ -93,8 +91,6 @@ export default function Transfer() {
         <AmountInput
           value={amount}
           onChange={handleChangeAmount}
-          inputName="amount"
-          inputLabel="Insert amount"
           defaultValue="0"
         />
       </div>

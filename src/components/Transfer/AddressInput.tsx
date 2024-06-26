@@ -3,16 +3,9 @@ import { isAddress } from 'viem';
 interface IAddressInputProps {
   value: string;
   onChange: (value: string) => void;
-  inputName: string;
-  inputLabel: string;
 }
 
-export default function AddressInput({
-  value,
-  onChange,
-  inputName,
-  inputLabel,
-}: IAddressInputProps) {
+export default function AddressInput({ value, onChange }: IAddressInputProps) {
   const handleChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -24,19 +17,20 @@ export default function AddressInput({
   const isValidAddress = !value || isAddress(value);
 
   return (
-    <label htmlFor={inputName}>
-      {inputLabel}
+    <label htmlFor="targetAddress">
+      Target wallet
       <input
+        id="targetAddress"
+        name="targetAddress"
         type="text"
-        name={inputName}
         value={value}
         onChange={handleChangeAddress}
-        aria-describedby={`${inputName}_error`}
+        aria-describedby="targetAddress_error"
       />
       <button onClick={clearValue}>Clear</button>
       {!isValidAddress && (
         <div>
-          <span id={`${inputName}_error`} role="alert">
+          <span id="targetAddress_error" role="alert">
             Invalid addreess
           </span>
         </div>

@@ -2,16 +2,12 @@ interface IAmountInputProps {
   value: string;
   defaultValue: string;
   onChange: (value: string) => void;
-  inputName: string;
-  inputLabel: string;
 }
 
 export default function AmountInput({
   value,
   defaultValue,
   onChange,
-  inputName,
-  inputLabel,
 }: IAmountInputProps) {
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -45,11 +41,12 @@ export default function AmountInput({
   };
 
   return (
-    <label htmlFor={inputName}>
-      {inputLabel}
+    <label htmlFor="amount">
+      Insert amount
       <input
+        id="amount"
+        name="amount"
         type="number"
-        name={inputName}
         placeholder="0"
         value={value}
         onChange={handleChangeAmount}
