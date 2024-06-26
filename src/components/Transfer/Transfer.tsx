@@ -11,6 +11,7 @@ import { useReadAllowance,
 import { CONTRACTS, TOKENS, TToken } from '@/contracts';
 import { useEffect, useState } from 'react';
 import { isAddress, parseUnits } from 'viem';
+import { useAccount } from 'wagmi';
 
 const TOKENS_ARR = Object.keys(TOKENS) as TToken[];
 
@@ -18,6 +19,7 @@ export default function Transfer() {
   const [targetAddress, setTargetAddress] = useState<string>('');
   const [selectedToken, selectToken] = useState<TToken>(TOKENS.DAI);
   const [amount, setAmount] = useState<string>('0');
+  const { chain } = useAccount();
   const { messages, dispatchMessage } = useMessages();
 
   const {
@@ -52,10 +54,11 @@ export default function Transfer() {
 
   const parsedAmount = parseUnits(amount, CONTRACTS[selectedToken].decimals);
 
+  const isWrongNetwork = !chain;
   const isLoading = readBalanceIsPending || readAllowanceIsPending;
   const isAddressValid = !targetAddress || isAddress(targetAddress);
   const isTxDisabled =
-    !isAddressValid || amount === '0' || !amount || balance <= parsedAmount;
+    !isAddressValid || amount === '0' || !amount || balance < parsedAmount;
   const isTransferDisabled =
     isTxDisabled || !allowance || allowance < parsedAmount;
 
@@ -94,7 +97,7 @@ export default function Transfer() {
           defaultValue="0"
         />
       </div>
-      {isLoading ? (
+      {isLoading && !isWrongNetwork ? (
         <div>Loading...</div>
       ) : (
         <>
