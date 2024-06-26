@@ -1,6 +1,6 @@
-import Account from '@/app/Account';
-import ConnectKitButton from '@/app/ConnectButton';
-import Transfer from '@/app/Transfer';
+import Account from '@/components/Account';
+import ConnectKitButton from '@/components/ConnectButton';
+import Transfer from '@/components/Transfer';
 
 export default function Home() {
   return (
