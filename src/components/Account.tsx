@@ -1,7 +1,7 @@
 'use client';
 
 import { CONTRACTS, TToken } from '@/contracts';
-import { useUserBalanceByChainId } from '@/providers/UserProvider';
+import { useUserBalanceByChainId } from '@/providers/UserProvider/hooks';
 import { humanizeNumber } from '@/utils';
 import { useAccount, useSwitchChain } from 'wagmi';
 
