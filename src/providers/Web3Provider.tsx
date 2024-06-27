@@ -48,7 +48,9 @@ const customTheme: Theme = {
 
 const customOverlay = lightTheme({ overlayBlur: 'small' });
 
-export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
+export default function Web3Provider({ children }: {
+  children: React.ReactNode;
+}) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>

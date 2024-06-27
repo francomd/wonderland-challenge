@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import { ThemeProvider } from '@/providers/ThemeProvider';
-import { Web3Provider } from '@/providers/Web3Provider';
+import Web3Provider from '@/providers/Web3Provider';
 import { styled } from '@linaria/react';
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';

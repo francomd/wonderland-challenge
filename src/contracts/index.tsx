@@ -7,7 +7,11 @@ export const CHAINS = {
   sepolia: 80001,
   polygonMumbai: 11155111,
 } as const;
-export type TChain = (typeof CHAINS)[keyof typeof CHAINS];
+
+export const CHAIN_NAMES = ['sepolia', 'Polygon Mumbai'] as const;
+
+export type TChain = keyof typeof CHAINS;
+export type TChainId = (typeof CHAINS)[keyof typeof CHAINS];
 
 const DAI_CONTRACT = {
   address: daiAddress,
@@ -25,7 +29,7 @@ export const TOKENS = {
   USDC: 'USDC',
 } as const;
 
-export type TToken = (typeof TOKENS)[keyof typeof TOKENS];
+export type TToken = keyof typeof TOKENS;
 
 export const CONTRACTS = {
   DAI: DAI_CONTRACT,
