@@ -1,19 +1,20 @@
 'use client';
 
-import { ConnectKitButton } from 'connectkit';
-import { useAccount, useSwitchChain } from 'wagmi';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAccount } from 'wagmi';
 
 export default function WalletConnect() {
-  const { chain, isConnected } = useAccount();
-  const { switchChain, chains } = useSwitchChain();
+  const { address } = useAccount();
+  const router = useRouter();
 
-  if (isConnected && !chain) {
-    return (
-      <button onClick={() => switchChain({ chainId: chains[0].id })}>
-        Switch to {chains[0].name}
-      </button>
-    );
-  }
+  useEffect(() => {
+    if (!address) {
+      router.push('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address]);
 
-  return <ConnectKitButton />;
+  return <ConnectButton />;
 }
