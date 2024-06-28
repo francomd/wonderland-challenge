@@ -105,3 +105,21 @@ a {
     color-scheme: dark;
   }
 }
+
+/* notification component, start hiding, appears with .show class */
+
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem;
+  background: white;
+  color: #000;
+  display: none;
+}
+
+.notification.show {
+  display: block;
+}

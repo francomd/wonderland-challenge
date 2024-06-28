@@ -1,6 +1,7 @@
 'use client';
 
 import { CONTRACTS, TOKENS, TToken } from '@/contracts';
+import { useSetNotification } from '@/providers/NotificationProvider/NotificationProvider';
 import { useEffect, useState } from 'react';
 import { isAddress, parseUnits } from 'viem';
 import { useAccount } from 'wagmi';
@@ -22,6 +23,7 @@ export default function Transfer() {
   const [selectedToken, selectToken] = useState<TToken>(TOKENS.DAI);
   const [amount, setAmount] = useState<string>('0');
   const { messages, dispatchMessage } = useAlertMessage();
+  const setNotification = useSetNotification();
 
   // blockchain hooks
   const { chain } = useAccount();
@@ -91,11 +93,19 @@ export default function Transfer() {
   };
 
   const handleApproveSuccess = () => {
-    // dispatchNotification
+    setNotification({
+      type: 'success',
+      message: 'Approved successfully',
+      timeout: 5000,
+    });
   };
 
   const handleApproveError = () => {
-    // dispatchNotification({ approved: false });
+    setNotification({
+      type: 'error',
+      message: 'Approve failed',
+      timeout: 5000,
+    });
   };
 
   const handleTransfer = () => {
@@ -103,17 +113,22 @@ export default function Transfer() {
   };
 
   const handreTransferSuccess = () => {
-    // dispatchNotification({ transfered: true });
+    readBalanceRefetch();
+    readAllowanceRefetch();
+
+    setNotification({
+      type: 'success',
+      message: 'Transfered successfully',
+      timeout: 5000,
+    });
   };
 
   const handleTransferError = () => {
-    // dispatchNotification({ transfered: false });
-  };
-
-  const handleTransferSuccess = () => {
-    // dispatchNotification({ transfered: true });
-    readBalanceRefetch();
-    readAllowanceRefetch();
+    setNotification({
+      type: 'error',
+      message: 'Transfer failed',
+      timeout: 5000,
+    });
   };
 
   // side effects

@@ -11,17 +11,13 @@ import { polygonMumbai, sepolia } from 'wagmi/chains';
 export const config = getDefaultConfig({
   chains: [sepolia, polygonMumbai],
   transports: {
-    [sepolia.id]: http('https://api-sepolia.etherscan.io/api', { key: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY }),
-    [polygonMumbai.id]: http('https://api-testnet.polygonscan.com/api', { key: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY }),
+    [sepolia.id]: http(),
+    [polygonMumbai.id]: http(),
   },
   ssr: true,
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
   appName: 'Wonderland',
   appDescription: "WE'RE ALL MAD HERE",
-
-  // TODO: Change this to the actual app url and icon
-  appUrl: 'https://family.co', // your app's url
-  appIcon: 'https://family.co/logo.png', // your app's icon, no bigger than 1024x1024px (max. 1MB)
 });
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { queryKeyHashFn: hashFn } } });

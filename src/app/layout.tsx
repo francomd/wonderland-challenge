@@ -1,4 +1,4 @@
-import ConnectKitButton from '@/components/ConnectButton';
+import Header from '@/components/Header';
 import { Web3Provider } from '@/providers/Web3Provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -19,10 +19,7 @@ export default function RootLayout({ children }: Readonly<{
     <html lang="en">
       <body className={inter.className}>
         <Web3Provider>
-          <header>
-            <h1>Wonderland Challenge</h1>
-            <ConnectKitButton />
-          </header>
+          <Header />
           {children}
         </Web3Provider>
       </body>
