@@ -4,14 +4,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { hashFn } from '@wagmi/core/query';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
+import { useRouter } from 'next/navigation';
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import { polygonMumbai, sepolia } from 'wagmi/chains';
-
-declare module 'wagmi' {
-  interface Register {
-    config: typeof config;
-  }
-}
 
 export const config = createConfig(getDefaultConfig({
   chains: [sepolia, polygonMumbai],
@@ -34,10 +29,17 @@ export const config = createConfig(getDefaultConfig({
 const queryClient = new QueryClient({ defaultOptions: { queries: { queryKeyHashFn: hashFn } } });
 
 export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
+  const handleDisconnect = () => {
+    router.push('/');
+  };
+
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ConnectKitProvider>{children}</ConnectKitProvider>
+        <ConnectKitProvider onDisconnect={handleDisconnect}>
+          {children}
+        </ConnectKitProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </WagmiProvider>

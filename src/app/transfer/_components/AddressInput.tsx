@@ -14,7 +14,7 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
     onChange('');
   };
 
-  const isValidAddress = !value || isAddress(value);
+  const isAddressInvalid = value && !isAddress(value);
 
   return (
     <label htmlFor="targetAddress">
@@ -28,7 +28,7 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
         aria-describedby="targetAddress_error"
       />
       <button onClick={clearValue}>Clear</button>
-      {!isValidAddress && (
+      {isAddressInvalid && (
         <div>
           <span id="targetAddress_error" role="alert">
             Invalid addreess
