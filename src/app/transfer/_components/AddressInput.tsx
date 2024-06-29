@@ -1,3 +1,6 @@
+import Button from '@/components/Button/Button';
+import Input from '@/components/Input/Input';
+import Label from '@/components/Label/Label';
 import { isAddress } from 'viem';
 
 interface IAddressInputProps {
@@ -17,17 +20,19 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
   const isAddressInvalid = value && !isAddress(value);
 
   return (
-    <label htmlFor="targetAddress">
+    <Label htmlFor="targetAddress">
       Target wallet
-      <input
-        id="targetAddress"
-        name="targetAddress"
-        type="text"
-        value={value}
-        onChange={handleChangeAddress}
-        aria-describedby="targetAddress_error"
-      />
-      <button onClick={clearValue}>Clear</button>
+      <div>
+        <Input
+          id="targetAddress"
+          name="targetAddress"
+          type="text"
+          value={value}
+          onChange={handleChangeAddress}
+          aria-describedby="targetAddress_error"
+        />
+        <Button onClick={clearValue}>Clear</Button>
+      </div>
       {isAddressInvalid && (
         <div>
           <span id="targetAddress_error" role="alert">
@@ -35,6 +40,6 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
           </span>
         </div>
       )}
-    </label>
+    </Label>
   );
 }

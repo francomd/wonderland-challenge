@@ -59,7 +59,7 @@ export const useNotificationContext = () => {
 export const useSetNotification = () => {
   const { dispatchNotification } = useNotificationContext();
 
-  return (payload: TNotificationPayload['SET_NOTIFICATION']) => {
+  return (payload: TNotificationPayload) => {
     dispatchNotification({
       type: 'SET_NOTIFICATION',
       payload,

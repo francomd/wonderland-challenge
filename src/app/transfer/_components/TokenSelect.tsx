@@ -1,3 +1,4 @@
+import Label from '@/components/Label/Label';
 import { TOKENS, TToken } from '@/contracts';
 
 interface ITokenSelectProps {
@@ -12,20 +13,22 @@ export default function TokenSelect({
   onSelect,
 }: ITokenSelectProps) {
   return (
-    <label htmlFor="token">
+    <Label htmlFor="token">
       Select token
-      <select
-        id="token"
-        name="token"
-        value={selected}
-        onChange={(e) => onSelect(e.target.value as TToken)}
-      >
-        {tokens.map((token) => (
-          <option key={token} value={TOKENS[token]}>
-            {token}
-          </option>
-        ))}
-      </select>
-    </label>
+      <div>
+        <select
+          id="token"
+          name="token"
+          value={selected}
+          onChange={(e) => onSelect(e.target.value as TToken)}
+        >
+          {tokens.map((token) => (
+            <option key={token} value={TOKENS[token]}>
+              {token}
+            </option>
+          ))}
+        </select>
+      </div>
+    </Label>
   );
 }

@@ -1,3 +1,7 @@
+import Button from '@/components/Button/Button';
+import Input from '@/components/Input/Input';
+import Label from '@/components/Label/Label';
+
 interface IAmountInputProps {
   value: string;
   defaultValue: string;
@@ -41,20 +45,22 @@ export default function AmountInput({
   };
 
   return (
-    <label htmlFor="amount">
+    <Label htmlFor="amount">
       Insert amount
-      <input
-        id="amount"
-        name="amount"
-        type="number"
-        placeholder="0"
-        value={value}
-        onChange={handleChangeAmount}
-        pattern="^([0-9]*[.])?[0-9]*$"
-        onKeyDown={handleAmountKeyDown}
-        onPaste={(e) => e.preventDefault()}
-      />
-      <button onClick={clearValue}>Clear</button>
-    </label>
+      <div>
+        <Input
+          id="amount"
+          name="amount"
+          type="number"
+          placeholder="0"
+          value={value}
+          onChange={handleChangeAmount}
+          pattern="^([0-9]*[.])?[0-9]*$"
+          onKeyDown={handleAmountKeyDown}
+          onPaste={(e) => e.preventDefault()}
+        />
+        <Button onClick={clearValue}>Clear</Button>
+      </div>
+    </Label>
   );
 }

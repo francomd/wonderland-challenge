@@ -1,3 +1,4 @@
+import Button from '@/components/Button/Button';
 import { useMemo } from 'react';
 
 interface IApproveButtonProps {
@@ -36,8 +37,8 @@ export default function ApproveButton({
   ]);
 
   return (
-    <button disabled={disabled} onClick={onClick}>
+    <Button disabled={disabled} onClick={onClick}>
       {dynamicText}
-    </button>
+    </Button>
   );
 }

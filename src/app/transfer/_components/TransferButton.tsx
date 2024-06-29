@@ -1,3 +1,4 @@
+import Button from '@/components/Button/Button';
 import { useMemo } from 'react';
 
 interface ITransferButtonProps {
@@ -20,8 +21,8 @@ export default function TransferButton({
   }, [confirming, loading]);
 
   return (
-    <button disabled={disabled} onClick={onClick}>
+    <Button disabled={disabled} onClick={onClick}>
       {dynamicText}
-    </button>
+    </Button>
   );
 }

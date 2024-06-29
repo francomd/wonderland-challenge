@@ -1,24 +1,20 @@
-type ActionMap<M extends { [index: string]: any }> = {
-  [Key in keyof M]: M[Key] extends undefined
-    ? { type: Key }
-    : { type: Key; payload: M[Key] };
-};
+import { TNotificationState } from '@/providers/NotificationProvider/NotificationProvider';
 
 export const NotificationActionTypes = {
   SET_NOTIFICATION: 'SET_NOTIFICATION',
   CLEAR_NOTIFICATION: 'CLEAR_NOTIFICATION',
 } as const;
 
-export type TNotificationActionTypes = typeof NotificationActionTypes;
+export type TNotificationPayload = Pick<
+  TNotificationState,
+  'type' | 'message' | 'timeout'
+>;
 
 export type TNotificationAction =
-  ActionMap<TNotificationPayload>[keyof ActionMap<TNotificationPayload>];
-
-export type TNotificationPayload = {
-  [NotificationActionTypes.SET_NOTIFICATION]: {
-    message: string;
-    type: 'success' | 'error';
-    timeout: number;
+  | {
+    type: 'SET_NOTIFICATION';
+    payload: TNotificationPayload;
+  }
+  | {
+    type: 'CLEAR_NOTIFICATION';
   };
-  [NotificationActionTypes.CLEAR_NOTIFICATION]: undefined;
-};
