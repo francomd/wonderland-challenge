@@ -20,5 +20,5 @@ export type TNotificationPayload = {
     type: 'success' | 'error';
     timeout: number;
   };
-  [NotificationActionTypes.CLEAR_NOTIFICATION]: {};
+  [NotificationActionTypes.CLEAR_NOTIFICATION]: undefined;
 };
