@@ -39,16 +39,12 @@ const customTheme: Theme = {
     selectedOptionBorder: '#192d55',
   },
   shadows: {
-
-    // connectButton: '0 0 0 2px #192d55',
     dialog: '0 0 0 2px #192d55',
     profileDetailsAction: '0 0 0 2px #192d55',
-
-    // selectedOption: '0 0 0 2px #192d55',
     selectedWallet: '0 0 0 2px #192d55',
     walletLogo: '0 0 0 2px #192d55',
   },
-};
+} as Theme;
 
 const customOverlay = lightTheme({ overlayBlur: 'small' });
 
