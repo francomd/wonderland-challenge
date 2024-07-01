@@ -12,6 +12,13 @@ export const globals = css`
       background-color: ${wlTheme.color.background};
     }
 
+    @media screen and (max-width: ${wlTheme.breakpoints.sm}) {
+      html,
+      body {
+        font-size: 16px;
+      }
+    }
+
     body {
       background-image: url('/assets/ethereum-background.svg');
       background-attachment: fixed;

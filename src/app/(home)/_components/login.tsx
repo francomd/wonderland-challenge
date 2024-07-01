@@ -17,8 +17,12 @@ export default function Login() {
 
   return (
     <SCenterContent>
-      <h1>Login</h1>
-      <h3>Connect your wallet</h3>
+      <h1>
+        <i>Fake</i> Login
+      </h1>
+      <h3>
+        Connect your <b>wallet</b>
+      </h3>
       <p>Click the button on the right side below</p>
     </SCenterContent>
   );
@@ -29,5 +33,7 @@ export const SCenterContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   height: 100%;
+  text-align: center;
 `;

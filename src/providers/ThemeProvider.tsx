@@ -11,9 +11,9 @@ export const wlTheme = {
     background: '#d7cdf6',
     backgroundLight: '#e0d8f6',
     backgroundDark: '#c5b9eb',
-    success: '#e2ffa9',
+    success: '#cfef8d',
     successText: '#b3ff7f',
-    error: '#f776a1',
+    error: '#f882a9',
     errorText: '#ff1768',
     white: '#f6f3ff',
     black: '#192d55',
@@ -34,6 +34,12 @@ export const wlTheme = {
     base: '0.6rem',
     small: '0.3rem',
     large: '1.2rem',
+  },
+  breakpoints: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
   },
 };
 

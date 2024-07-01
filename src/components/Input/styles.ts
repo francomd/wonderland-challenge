@@ -11,6 +11,7 @@ export const SInput = withTheme(styled.input<Theme>`
   margin: 0;
   box-shadow: 4px 4px 0 0 ${({ theme }) => theme.color.primary};
   will-change: transform;
+  width: 100%;
 
   &:disabled {
     cursor: not-allowed;
