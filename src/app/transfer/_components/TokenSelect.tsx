@@ -1,4 +1,5 @@
 import Label from '@/components/Label/Label';
+import Select from '@/components/Select/Select';
 import { TOKENS, TToken } from '@/contracts';
 
 interface ITokenSelectProps {
@@ -16,7 +17,7 @@ export default function TokenSelect({
     <Label htmlFor="token">
       Select token
       <div>
-        <select
+        <Select
           id="token"
           name="token"
           value={selected}
@@ -27,7 +28,7 @@ export default function TokenSelect({
               {token}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
     </Label>
   );
