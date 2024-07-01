@@ -46,6 +46,15 @@ export const SInput = withTheme(styled.input<Theme>`
   &[data-error='true'] {
     background-color: ${({ theme }) => theme.color.error};
   }
+
+  [type='number'] {
+    -moz-appearance: textfield;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `);
 
 export const ErrorMessage = withTheme(styled.div<Theme>`

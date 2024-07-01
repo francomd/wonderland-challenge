@@ -4,6 +4,7 @@ export const SLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin: 0.5rem 0;
+  text-align: left;
 
   & > div:first-child {
     margin-top: 0.25rem;

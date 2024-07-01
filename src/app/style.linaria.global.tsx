@@ -30,6 +30,7 @@ export const globals = css`
     h5,
     h6 {
       margin: 0;
+      line-height: 1;
     }
 
     h1 {

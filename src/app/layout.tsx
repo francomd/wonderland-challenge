@@ -45,4 +45,8 @@ const Container = styled.div`
   height: 100%;
   padding: 1rem;
   flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
