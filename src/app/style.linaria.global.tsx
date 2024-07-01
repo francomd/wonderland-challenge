@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 
 export const globals = css`
   :global() {
-    @layer button, rk;
+    @layer override, rk;
 
     html,
     body {

@@ -11,6 +11,9 @@ export const wlTheme = {
     background: '#d7cdf6',
     backgroundLight: '#e0d8f6',
     backgroundDark: '#c5b9eb',
+    success: '#e2ffa9',
+    error: '#f776a1',
+    white: '#f6f3ff',
   },
   font: {
     base: '20px',

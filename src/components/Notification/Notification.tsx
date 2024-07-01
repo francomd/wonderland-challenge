@@ -1,19 +1,26 @@
 'use client';
 
+import { SCloseButton, SNotification } from '@/components/Notification/styles';
 import { useNotificationContext } from '@/providers/NotificationProvider/NotificationProvider';
 import { NotificationActionTypes } from '@/providers/NotificationProvider/actions';
-import { styled } from '@linaria/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Notification() {
   const { state, dispatchNotification } = useNotificationContext();
   const { type, message, visible, timeout } = state;
+  const [isShown, setIsShown] = useState(visible);
 
   const clearNotification = () => {
-    dispatchNotification({ type: NotificationActionTypes.CLEAR_NOTIFICATION });
+    setIsShown(false);
+
+    setTimeout(() => {
+      dispatchNotification({ type: NotificationActionTypes.CLEAR_NOTIFICATION });
+    }, 300);
   };
 
   useEffect(() => {
+    setIsShown(visible);
+
     let timeoutId: NodeJS.Timeout;
     if (visible && timeout > 0) {
       timeoutId = setTimeout(() => {
@@ -26,21 +33,9 @@ export default function Notification() {
   }, [state]);
 
   return (
-    <SNotification show={visible}>
-      <button type="button" className="close" onClick={clearNotification} />
+    <SNotification show={isShown} type={type}>
       {message}
+      <SCloseButton onClick={clearNotification}>X</SCloseButton>
     </SNotification>
   );
 }
-
-const SNotification = styled.div<{ show: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 1rem;
-  background: white;
-  color: #000;
-  display: ${(props) => (props.show ? 'block' : 'none')};
-`;

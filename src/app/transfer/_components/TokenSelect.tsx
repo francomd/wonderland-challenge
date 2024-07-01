@@ -1,5 +1,5 @@
-import Label from '@/components/Label/Label';
-import Select from '@/components/Select/Select';
+import Label from '@/components/Label';
+import Select from '@/components/Select';
 import { TOKENS, TToken } from '@/contracts';
 
 interface ITokenSelectProps {
