@@ -124,6 +124,15 @@ export const globals = css`
         & > div:first-child {
           border: none !important;
         }
+
+        @media screen and (max-width: ${wlTheme.breakpoints.sm}) {
+          &[data-testid='rk-wallet-option-metaMask'],
+          &[data-testid='rk-wallet-option-rainbow'],
+          &[data-testid='rk-wallet-option-coinbase'],
+          &[data-testid='rk-wallet-option-walletConnect'] {
+            border: none !important;
+            box-shadow: none !important;
+          }
       }
     }
   }
