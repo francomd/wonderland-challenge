@@ -5,7 +5,7 @@ export const SLabel = styled.label`
   flex-direction: column;
   margin: 0.5rem 0;
 
-  & > div {
+  & > div:first-child {
     margin-top: 0.25rem;
     display: flex;
     flex-direction: row;

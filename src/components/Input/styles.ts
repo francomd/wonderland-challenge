@@ -42,4 +42,16 @@ export const SInput = withTheme(styled.input<Theme>`
   &::placeholder {
     color: ${({ theme }) => theme.color.primary};
   }
+
+  &[data-error='true'] {
+    background-color: ${({ theme }) => theme.color.error};
+  }
+`);
+
+export const ErrorMessage = withTheme(styled.div<Theme>`
+  color: ${({ theme }) => theme.color.errorText};
+  font-size: ${({ theme }) => theme.font.small};
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
 `);
