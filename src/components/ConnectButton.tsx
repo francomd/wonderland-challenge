@@ -16,5 +16,5 @@ export default function WalletConnect() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
 
-  return <ConnectButton />;
+  return <ConnectButton showBalance={false} />;
 }

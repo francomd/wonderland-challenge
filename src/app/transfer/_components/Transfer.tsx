@@ -15,6 +15,7 @@ import AmountInput from './AmountInput';
 import ApproveButton from './ApproveButton';
 import TokenSelect from './TokenSelect';
 import TransferButton from './TransferButton';
+import { SForm, SMainActions } from './styles';
 
 const TOKENS_ARR = Object.keys(TOKENS) as TToken[];
 
@@ -164,7 +165,7 @@ export default function Transfer() {
 
   // render
   return (
-    <div>
+    <SForm>
       <AlertMessage messages={messages} />
       <div>
         <AddressInput
@@ -186,19 +187,21 @@ export default function Transfer() {
           defaultValue="0"
         />
       </div>
-      <ApproveButton
-        loading={approveTxLoading}
-        confirming={approveIsPending}
-        approved={isApproved}
-        disabled={isApproveDisabled}
-        onClick={handleApprove}
-      />
-      <TransferButton
-        loading={transferTxLoading}
-        confirming={transferIsPending}
-        disabled={isTransferDisabled}
-        onClick={handleTransfer}
-      />
-    </div>
+      <SMainActions>
+        <ApproveButton
+          loading={approveTxLoading}
+          confirming={approveIsPending}
+          approved={isApproved}
+          disabled={isApproveDisabled}
+          onClick={handleApprove}
+        />
+        <TransferButton
+          loading={transferTxLoading}
+          confirming={transferIsPending}
+          disabled={isTransferDisabled}
+          onClick={handleTransfer}
+        />
+      </SMainActions>
+    </SForm>
   );
 }

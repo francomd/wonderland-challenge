@@ -1,17 +1,26 @@
 'use client';
 
+import { SCloseButton, SNotification } from '@/components/Notification/styles';
 import { useNotificationContext } from '@/providers/NotificationProvider/NotificationProvider';
-import { useEffect } from 'react';
+import { NotificationActionTypes } from '@/providers/NotificationProvider/actions';
+import { useEffect, useState } from 'react';
 
 export default function Notification() {
   const { state, dispatchNotification } = useNotificationContext();
   const { type, message, visible, timeout } = state;
+  const [isShown, setIsShown] = useState(visible);
 
   const clearNotification = () => {
-    dispatchNotification({ type: 'CLEAR_NOTIFICATION' });
+    setIsShown(false);
+
+    setTimeout(() => {
+      dispatchNotification({ type: NotificationActionTypes.CLEAR_NOTIFICATION });
+    }, 300);
   };
 
   useEffect(() => {
+    setIsShown(visible);
+
     let timeoutId: NodeJS.Timeout;
     if (visible && timeout > 0) {
       timeoutId = setTimeout(() => {
@@ -23,12 +32,10 @@ export default function Notification() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
-  const className = `notification ${type} ${visible ? 'show' : ''}`;
-
   return (
-    <div className={className}>
-      <button type="button" className="close" onClick={clearNotification} />
+    <SNotification show={isShown} type={type}>
       {message}
-    </div>
+      <SCloseButton onClick={clearNotification}>X</SCloseButton>
+    </SNotification>
   );
 }

@@ -23,12 +23,12 @@
         "SwitchCase": 1
       }
     ],
-    "@stylistic/jsx-quotes": ["warn", "prefer-double"],
     "@stylistic/quotes": [
       "warn",
       "single",
       { "avoidEscape": true, "allowTemplateLiterals": true }
     ],
+    "@stylistic/jsx-quotes": ["warn", "prefer-double"],
     "@stylistic/array-element-newline": [
       "warn",
       { "multiline": true, "minItems": 3 }

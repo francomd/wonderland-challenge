@@ -1,6 +1,11 @@
 'use client';
 
-import { RainbowKitProvider, getDefaultConfig } from '@rainbow-me/rainbowkit';
+import {
+  RainbowKitProvider,
+  Theme,
+  getDefaultConfig,
+  lightTheme
+} from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -25,11 +30,37 @@ export const config = getDefaultConfig({
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { queryKeyHashFn: hashFn } } });
 
+const customTheme: Theme = {
+  colors: {
+    accentColor: '#192d55',
+    accentColorForeground: '#192d55',
+    modalBackground: '#d7cdf6',
+    generalBorder: '#192d55',
+    selectedOptionBorder: '#192d55',
+  },
+  shadows: {
+    dialog: '0 0 0 2px #192d55',
+    profileDetailsAction: '0 0 0 2px #192d55',
+    selectedWallet: '0 0 0 2px #192d55',
+    walletLogo: '0 0 0 2px #192d55',
+  },
+} as Theme;
+
+const customOverlay = lightTheme({ overlayBlur: 'small' });
+
 export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{children}</RainbowKitProvider>
+        <RainbowKitProvider
+          modalSize="compact"
+          theme={{
+            ...customOverlay,
+            ...customTheme,
+          }}
+        >
+          {children}
+        </RainbowKitProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </WagmiProvider>
