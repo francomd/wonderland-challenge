@@ -1,4 +1,4 @@
-import { Theme, withTheme } from '@/providers/ThemeProvider';
+import { Theme, breakpoint, withTheme } from '@/providers/ThemeProvider';
 import { styled } from '@linaria/react';
 
 export const SSelect = withTheme(styled.select<Theme>`
@@ -21,9 +21,10 @@ export const SSelect = withTheme(styled.select<Theme>`
   background-position-y: 0.15rem;
   padding-right: 2rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  ${breakpoint('sm',
+    `
     background-position-y: 0;
-  }
+  `)}
 
   &:disabled {
     cursor: not-allowed;

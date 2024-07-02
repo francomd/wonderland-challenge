@@ -43,6 +43,13 @@ export const wlTheme = {
   },
 };
 
+export const breakpoint = (device: keyof (typeof wlTheme)['breakpoints'],
+  string: string) => `
+  @media (max-width: ${wlTheme.breakpoints[device]}) {
+    ${string}
+  }
+`;
+
 export type Theme = { theme: typeof wlTheme };
 
 const { ThemeProvider, withTheme, useTheme } = createTheming(wlTheme);

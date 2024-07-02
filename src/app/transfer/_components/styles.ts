@@ -1,4 +1,4 @@
-import { Theme, withTheme } from '@/providers/ThemeProvider';
+import { Theme, breakpoint, withTheme } from '@/providers/ThemeProvider';
 import { styled } from '@linaria/react';
 
 export const SBalance = withTheme(styled.div<Theme>`
@@ -14,9 +14,10 @@ export const SBalance = withTheme(styled.div<Theme>`
     flex: 1 1 50%;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  ${breakpoint('sm',
+    `
     padding: 0 1rem;
-  }
+  `)}
 `);
 
 export const SCard = withTheme(styled.div<Theme>`
@@ -55,9 +56,10 @@ export const SForm = withTheme(styled.div<Theme>`
   margin-top: 1rem;
   text-align: center;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  ${breakpoint('sm',
+    `
     padding: 0 1rem;
-  }
+  `)}
 `);
 
 export const SMainActions = styled.div`
