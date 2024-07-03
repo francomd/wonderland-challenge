@@ -1,7 +1,7 @@
 # Wonderland FE Challenge
 By *Franco Dalmasso*
 
-[🧾 Challenge]([https://basementstudio.notion.site/b-Front-end-Dev-Challenge-da2967c579374fb4969e475dc15fb552](https://hackmd.io/@ardy/SJd5OqKR6)) | [🚀 DEMO]([https://basement-challenge-kappa.vercel.app/](https://wonderland-challenge.vercel.app/))
+[🧾 Challenge](https://hackmd.io/@ardy/SJd5OqKR6) | [🚀 DEMO](https://wonderland-challenge.vercel.app/)
 
 ### Stack:
 NextJS | React | TypeScript | Linaria | Rainbowkit | Wagmi | Viem |
