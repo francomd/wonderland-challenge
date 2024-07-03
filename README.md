@@ -12,6 +12,7 @@ TODO:
 - [ ] mintFunction
 - [ ] unit test
 - [ ] e2e test
+- [ ] Polygon Mumbai transport (Infura and Alchemy doesn’t support this testenet anymore, only Amoy)
 
 
 ### Comments
