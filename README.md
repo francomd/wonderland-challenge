@@ -1,3 +1,33 @@
+# Wonderland FE Challenge
+By *Franco Dalmasso*
+
+[🧾 Challenge]([https://basementstudio.notion.site/b-Front-end-Dev-Challenge-da2967c579374fb4969e475dc15fb552](https://hackmd.io/@ardy/SJd5OqKR6)) | [🚀 DEMO]([https://basement-challenge-kappa.vercel.app/](https://wonderland-challenge.vercel.app/))
+
+### Stack:
+NextJS | React | TypeScript | Linaria | Rainbowkit | Wagmi | Viem |
+Prettier | ESLint (stylistic) | Husky
+
+TODO:
+- [ ] useContext / Redux
+- [ ] mintFunction
+- [ ] unit test
+- [ ] e2e test
+
+
+### Comments
+> The challenge was fun. It's simple but it pushes creativity.
+
+### Linaria thoughts (first time)
+- It's a good CSS-in-JS lib. Zero-runtime, styleshits generated during build.
+- It includes theme generation and dynamic props, in the styled components way.
+- Doesn't have an attribute for inline custom styles (like sx or cx in others libs).
+- Some times, when writing dynamic styles, the hot-reload gets buggy.
+
+.
+
+.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
