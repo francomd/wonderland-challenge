@@ -9,7 +9,6 @@ import { useApproveContract,
   useReadAllowance,
   useReadBalanceOf,
   useTransferFromContract } from '../_hooks/contractHooks';
-import { AlertMessage, useAlertMessage } from '../_hooks/useAlertMessage';
 import AddressInput from './AddressInput';
 import AmountInput from './AmountInput';
 import ApproveButton from './ApproveButton';
@@ -23,7 +22,6 @@ export default function Transfer() {
   const [targetAddress, setTargetAddress] = useState<string>('');
   const [selectedToken, selectToken] = useState<TToken>(TOKENS.DAI);
   const [amount, setAmount] = useState<string>('0');
-  const { messages, dispatchMessage } = useAlertMessage();
   const setNotification = useSetNotification();
 
   // blockchain hooks
@@ -132,17 +130,6 @@ export default function Transfer() {
     });
   };
 
-  // side effects
-  useEffect(() => {
-    dispatchMessage({ invalidAddress: isAddressInvalid });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetAddress]);
-
-  useEffect(() => {
-    dispatchMessage({ insufficientBalance: isBalanceInsufficient });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [amount, balance]);
-
   useEffect(() => {
     if (approveTxStatus === 'success') {
       handleApproveSuccess();
@@ -151,6 +138,7 @@ export default function Transfer() {
     if (approveTxStatus === 'error') {
       handleApproveError();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [approveTxStatus]);
 
   useEffect(() => {
@@ -161,16 +149,17 @@ export default function Transfer() {
     if (transferTxStatus === 'error') {
       handleTransferError();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transferTxStatus]);
 
   // render
   return (
     <SForm>
-      <AlertMessage messages={messages} />
       <div>
         <AddressInput
           value={targetAddress}
           onChange={handleChangeAddresInput}
+          isInvalid={isAddressInvalid}
         />
       </div>
       <div>
@@ -183,6 +172,7 @@ export default function Transfer() {
       <div>
         <AmountInput
           value={amount}
+          isInvalid={isBalanceInsufficient}
           onChange={handleChangeAmount}
           defaultValue="0"
         />

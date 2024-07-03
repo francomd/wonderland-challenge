@@ -2,14 +2,18 @@ import Button from '@/components/Button';
 import Input from '@/components/Input';
 import { ErrorMessage } from '@/components/Input/styles';
 import Label from '@/components/Label';
-import { isAddress } from 'viem';
 
 interface IAddressInputProps {
   value: string;
   onChange: (value: string) => void;
+  isInvalid: boolean;
 }
 
-export default function AddressInput({ value, onChange }: IAddressInputProps) {
+export default function AddressInput({
+  value,
+  onChange,
+  isInvalid,
+}: IAddressInputProps) {
   const handleChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -17,8 +21,6 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
   const clearValue = () => {
     onChange('');
   };
-
-  const isAddressInvalid = value && !isAddress(value);
 
   return (
     <Label htmlFor="targetAddress">
@@ -30,13 +32,13 @@ export default function AddressInput({ value, onChange }: IAddressInputProps) {
           type="text"
           value={value}
           onChange={handleChangeAddress}
-          aria-invalid={!!isAddressInvalid}
+          aria-invalid={isInvalid}
           aria-errormessage="targetAddress_error"
-          data-error={!!isAddressInvalid}
+          data-error={isInvalid}
         />
         <Button onClick={clearValue}>Clear</Button>
       </div>
-      {isAddressInvalid && (
+      {isInvalid && (
         <ErrorMessage id="targetAddress_error" role="alert">
           Invalid addreess
         </ErrorMessage>

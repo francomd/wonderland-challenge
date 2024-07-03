@@ -1,15 +1,18 @@
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import { ErrorMessage } from '@/components/Input/styles';
 import Label from '@/components/Label';
 
 interface IAmountInputProps {
   value: string;
+  isInvalid: boolean;
   defaultValue: string;
   onChange: (value: string) => void;
 }
 
 export default function AmountInput({
   value,
+  isInvalid,
   defaultValue,
   onChange,
 }: IAmountInputProps) {
@@ -58,9 +61,17 @@ export default function AmountInput({
           pattern="^([0-9]*[.])?[0-9]*$"
           onKeyDown={handleAmountKeyDown}
           onPaste={(e) => e.preventDefault()}
+          aria-invalid={isInvalid}
+          aria-errormessage="amount_error"
+          data-error={isInvalid}
         />
         <Button onClick={clearValue}>Clear</Button>
       </div>
+      {isInvalid && (
+        <ErrorMessage id="amount_error" role="alert">
+          Not enough balance
+        </ErrorMessage>
+      )}
     </Label>
   );
 }
