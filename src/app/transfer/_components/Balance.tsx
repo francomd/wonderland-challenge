@@ -8,6 +8,7 @@ import { useReadDaiAllowance,
 import { humanizeNumber } from '@/utils';
 import Image from 'next/image';
 import { useAccount } from 'wagmi';
+import MintButton from './MintButton';
 import { SBalance, SCard, SCoinName } from './styles';
 
 const Balance = () => {
@@ -51,6 +52,7 @@ const Balance = () => {
           Allowance: {humanizeNumber(usdcAllowance, CONTRACTS.USDC.decimals)}
         </small>
       </SCard>
+      <MintButton />
     </SBalance>
   );
 };

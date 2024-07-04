@@ -2,6 +2,7 @@ import { Theme, breakpoint, withTheme } from '@/providers/ThemeProvider';
 import { styled } from '@linaria/react';
 
 export const SBalance = withTheme(styled.div<Theme>`
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 0 4rem;
@@ -74,3 +75,22 @@ export const SMainActions = styled.div`
     text-transform: uppercase;
   }
 `;
+
+export const SMintButton = withTheme(styled.button<Theme>`
+  position: absolute;
+  bottom: -1.5rem;
+  height: 3rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+
+  @layer override {
+    text-transform: uppercase !important;
+    box-shadow: unset !important;
+    font-size: 0.875rem !important;
+  }
+`);

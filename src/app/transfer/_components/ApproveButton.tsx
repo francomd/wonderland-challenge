@@ -16,15 +16,6 @@ export default function ApproveButton({
   confirming,
   onClick,
 }: IApproveButtonProps) {
-  /*
-   * const isApproved = allowance >= amount;
-   * const isLoading = waitTxIsLoading;
-   * const isConfirming = writeContractIsPending && !writeContractIsError
-   * const anyContractIsPending = writeContractIsPending || readContractIsPending;
-   * const isDisabled =
-   *   disabled || anyContractIsPending || isLoading || isApproved;
-   */
-
   const dynamicText = useMemo(() => {
     if (confirming) return 'Confirming...';
     if (loading) return 'Loading...';

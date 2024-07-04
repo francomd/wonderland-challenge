@@ -129,11 +129,70 @@ export const useTransferFromContract = (
     });
   };
 
+  const { refetch: refetchBalance } = useReadContract({
+    address: CONTRACTS[token].address[chainId! as TChain],
+    abi: CONTRACTS[token].abi,
+    functionName: 'balanceOf',
+    args: [address!],
+  });
+
+  useEffect(() => {
+    if (waitTxStatus === 'success') {
+      refetchBalance();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [waitTxStatus]);
+
   return {
     isLoading: waitTxIsLoading,
     isPending: transferFromContractIsPending && !transferFromContractIsError,
     isError: transferFromContractIsError,
     txStatus: waitTxStatus,
     writeContract: handleTransferFrom,
+  };
+};
+
+export const useMint = (token: TToken, amount: bigint) => {
+  const { address, chainId } = useAccount();
+
+  const {
+    data: hash,
+    writeContract: mintContract,
+    isPending: mintContractIsPending,
+    isError: mintContractIsError,
+  } = useWriteContract();
+
+  const { status: waitTxStatus, isLoading: waitTxIsLoading } =
+    useWaitForTransactionReceipt({ hash });
+
+  const handleMint = () => {
+    mintContract({
+      address: CONTRACTS[token].address[chainId! as TChain],
+      abi: CONTRACTS[token].abi,
+      functionName: 'mint',
+      args: [address!, amount],
+    });
+  };
+
+  const { refetch: refetchBalance } = useReadContract({
+    address: CONTRACTS[token].address[chainId! as TChain],
+    abi: CONTRACTS[token].abi,
+    functionName: 'balanceOf',
+    args: [address!],
+  });
+
+  useEffect(() => {
+    if (waitTxStatus === 'success') {
+      refetchBalance();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [waitTxStatus]);
+
+  return {
+    isLoading: waitTxIsLoading,
+    isPending: mintContractIsPending && !mintContractIsError,
+    isError: mintContractIsError,
+    txStatus: waitTxStatus,
+    writeContract: handleMint,
   };
 };
