@@ -6,7 +6,7 @@ import { reducer } from '@/providers/NotificationProvider/reducer';
 import { createContext, useContext, useReducer } from 'react';
 
 export type TNotificationState = {
-  type: 'success' | 'error';
+  type: 'success' | 'error' | 'loading';
   message: string;
   visible: boolean;
   timeout: number;

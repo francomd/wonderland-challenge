@@ -37,6 +37,17 @@ export default function MintButton() {
   };
 
   useEffect(() => {
+    if (mintTxLoading) {
+      setNotification({
+        type: 'loading',
+        message: 'Minting...',
+        timeout: 0,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mintTxLoading]);
+
+  useEffect(() => {
     if (mintTxStatus === 'success') {
       setMinModalOpened(false);
       setNotification({

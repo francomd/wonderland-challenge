@@ -1,9 +1,10 @@
+import { TNotificationState } from '@/providers/NotificationProvider/NotificationProvider';
 import { Theme, withTheme } from '@/providers/ThemeProvider';
 import { styled } from '@linaria/react';
 
 type TSNotificationProps = {
   show: boolean;
-  type: 'success' | 'error';
+  type: TNotificationState['type'];
 };
 
 export const SNotification = withTheme(styled.div<TSNotificationProps & Theme>`
@@ -18,7 +19,7 @@ export const SNotification = withTheme(styled.div<TSNotificationProps & Theme>`
   padding: 1rem 1.5rem;
   padding-right: 4rem;
   margin: 1rem;
-  background: ${({ theme, type }) => theme.color[type]};
+  background: ${({ theme, type }) => type === 'loading' ? theme.color.backgroundLight : theme.color[type]};
   border-radius: ${({ theme }) => theme.radii.base};
   color: ${({ theme }) => theme.color.text};
   font-weight: 500;

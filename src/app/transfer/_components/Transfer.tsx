@@ -130,6 +130,39 @@ export default function Transfer() {
     });
   };
 
+  // effects
+  useEffect(() => {
+    if (isWrongNetwork) {
+      setNotification({
+        type: 'error',
+        message: 'Please connect to the correct network',
+        timeout: 5000,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isWrongNetwork]);
+
+  useEffect(() => {
+    if (approveTxLoading) {
+      setNotification({
+        type: 'loading',
+        message: 'Approving...',
+        timeout: 0,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [approveTxLoading]);
+
+  useEffect(() => {
+    if (transferTxLoading) {
+      setNotification({
+        type: 'loading',
+        message: 'Transferring...',
+        timeout: 0,
+      });
+    }
+  }, [setNotification, transferTxLoading]);
+
   useEffect(() => {
     if (approveTxStatus === 'success') {
       handleApproveSuccess();
