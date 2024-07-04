@@ -67,12 +67,12 @@ export default function Transfer() {
   const isButtonDisabled =
     isLoading ||
     anyContractIsPending ||
+    !targetAddress ||
     isAddressInvalid ||
     isAmountInvalid ||
     isWrongNetwork;
-  const isApproveDisabled = isButtonDisabled || approveTxStatus === 'pending';
-  const isTransferDisabled =
-    isButtonDisabled || transferTxStatus === 'pending' || isAllowanceInvalid;
+  const isApproveDisabled = isButtonDisabled || isApproved;
+  const isTransferDisabled = isButtonDisabled || isAllowanceInvalid;
 
   // handlers
   const handleChangeAddresInput = (value: string) => {
