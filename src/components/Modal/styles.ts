@@ -15,7 +15,7 @@ export const SModalOverlay = styled.div`
 `;
 
 export const SModal = withTheme(styled.div<Theme>`
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: ${({ theme }) => theme.radii.large};
   background: ${({ theme }) => theme.color.background};
   border: 2px solid ${({ theme }) => theme.color.primary};
@@ -30,8 +30,8 @@ export const SCloseButton = withTheme(styled.button<Theme>`
     box-shadow: none !important;
   }
   position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
+  top: -1.25rem;
+  right: -0.75rem;
   height: 2rem;
   width: 2rem;
   background: ${({ theme }) => theme.color.primary};

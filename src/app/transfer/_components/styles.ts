@@ -87,6 +87,7 @@ export const SMintButton = withTheme(styled.button<Theme>`
   justify-content: center;
   align-items: center;
   font-weight: 700;
+  cursor: pointer;
 
   @layer override {
     text-transform: uppercase !important;

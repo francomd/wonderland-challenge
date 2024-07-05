@@ -1,6 +1,6 @@
 import AmountInput from '@/app/transfer/_components/AmountInput';
 import TokenSelect from '@/app/transfer/_components/TokenSelect';
-import { SMintButton } from '@/app/transfer/_components/styles';
+import { SMainActions, SMintButton } from '@/app/transfer/_components/styles';
 import { useMint } from '@/app/transfer/_hooks/contractHooks';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
@@ -78,12 +78,14 @@ export default function MintButton() {
           selected={selectedToken}
           onSelect={selectToken}
         />
-        <Button
-          onClick={handleMint}
-          disabled={mintTxLoading || mintIsPending || +amount == 0}
-        >
-          Mint
-        </Button>
+        <SMainActions>
+          <Button
+            onClick={handleMint}
+            disabled={mintTxLoading || mintIsPending || +amount == 0}
+          >
+            MINT
+          </Button>
+        </SMainActions>
       </Modal>
     </>
   );
