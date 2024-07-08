@@ -31,10 +31,12 @@ export default function Modal({
 
   return (
     <SModalOverlay>
-      <SModal>
+      <SModal data-testid="modal">
         <SHeader>
           <STitle>{title}</STitle>
-          <SCloseButton onClick={handleClose}>X</SCloseButton>
+          <SCloseButton onClick={handleClose} data-testid="modal-close">
+            X
+          </SCloseButton>
         </SHeader>
         {children}
       </SModal>

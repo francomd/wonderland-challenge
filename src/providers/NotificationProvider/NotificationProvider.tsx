@@ -29,10 +29,14 @@ const NotificationContext = createContext<TNotificationContext>({
   dispatchNotification: () => {},
 });
 
-export default function NotificationProvider({ children }: {
+export default function NotificationProvider({
+  children,
+  defaultValues = initialState,
+}: {
   children: React.ReactNode;
+  defaultValues?: TNotificationState;
 }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, defaultValues);
 
   return (
     <NotificationContext.Provider

@@ -1,11 +1,9 @@
 'use client';
 
-import {
-  RainbowKitProvider,
+import { RainbowKitProvider,
   Theme,
   getDefaultConfig,
-  lightTheme
-} from '@rainbow-me/rainbowkit';
+  lightTheme } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -16,11 +14,8 @@ import { polygonMumbai, sepolia } from 'wagmi/chains';
 export const config = getDefaultConfig({
   chains: [sepolia, polygonMumbai],
   transports: {
-    [sepolia.id]: http('https://sepolia.infura.io/v3/19fb9024a0e74ba7b848c03f04bf44ef',
-      { key: process.env.NEXT_PUBLIC_INFURA_ETHEREUM_SEPOLIA_API_KEY || '' }),
+    [sepolia.id]: http('https://sepolia.infura.io/v3/', { key: process.env.NEXT_PUBLIC_INFURA_ETHEREUM_SEPOLIA_API_KEY || '' }),
     [polygonMumbai.id]: http('https://api-testnet.polygonscan.com/api'),
-
-    // [polygonAmoy.id]: http('https://polygon-amoy.infura.io/v3/19fb9024a0e74ba7b848c03f04bf44ef', { key: process.env.NEXT_PUBLIC_INFURA_POLYGON_AMOY_API_KEY || '' }),
   },
   ssr: true,
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',

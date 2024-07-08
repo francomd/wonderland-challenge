@@ -32,10 +32,17 @@ export default function Notification() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
+  if (!visible) return null;
+
   return (
-    <SNotification show={isShown} type={type}>
+    <SNotification show={isShown} type={type} data-testid="notification">
       {message}
-      <SCloseButton onClick={clearNotification}>X</SCloseButton>
+      <SCloseButton
+        onClick={clearNotification}
+        data-testid="notification-close"
+      >
+        X
+      </SCloseButton>
     </SNotification>
   );
 }
