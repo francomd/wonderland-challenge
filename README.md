@@ -1,67 +1,51 @@
 # Wonderland FE Challenge
-By *Franco Dalmasso*
+By [*Franco Dalmasso*](https://www.linkedin.com/in/franndalmasso/)
 
 [🧾 Challenge](https://hackmd.io/@ardy/SJd5OqKR6) | [🚀 DEMO](https://wonderland-challenge.vercel.app/)
+
+```bash
+# Development
+
+npm run dev
+
+# Test
+
+npm run test
+```
 
 ### Stack:
 NextJS | React | TypeScript | Linaria | Rainbowkit | Wagmi | Viem |
 Prettier | ESLint (stylistic) | Husky
 
-TODO:
-- [ ] useContext / Redux
-- [ ] mintFunction
-- [ ] unit test
-- [ ] e2e test
-- [ ] Polygon Mumbai transport (Infura and Alchemy doesn’t support this testenet anymore, only Amoy)
-
-
-### Comments
+### Thougths
 > The challenge was fun. It's simple but it pushes creativity.
+> 
+> Polygon Mumbai is deprecated. The tokens should be re-deployed on Amoy. 
 
-### Linaria thoughts (first time)
-- It's a good CSS-in-JS lib. Zero-runtime, styleshits generated during build.
-- It includes theme generation and dynamic props, in the styled components way.
-- Doesn't have an attribute for inline custom styles (like sx or cx in others libs).
-- Some times, when writing dynamic styles, the hot-reload gets buggy.
+TODO:
+- [X] Connect your wallet
+- [X] Detect the wrong network and allows you to switch between chains (Sepolia and Polygon Mumbai)
+- [X] Fetch balances of DAI and USDC tokens
+- [X] Displays both balances in a readable/human way
+- [X] Has an input for wallet address to set selected/target user
+- [X] Has an input for each token to enter the amount of tokens to be approved or transfered
+- [X] Has 2 buttons for each token: APPROVE and TRANSFER
+- [X] The inputs have the correct validations hooked to the buttons and also an error message to show to the user ('not enough funds', 'need to approve token first', etc). All of this is calculated/validated with the amount the user types
+- [X] Executes the transactions for APPROVE and TRANSFER of tokens to a user
+- [X] Some UNIT tests
+- [X] Allows you to call the Mint() function to get some tokens to test the app
+      
+Bonuses:
+- [X] Organized folder/files structure
+- [X] Well defined state architecture
+- [X] Buttons with loading state (disable buttons and dispatch a notification)
+- [X] Detect that you are in the correct network
+- [ ] Some E2E tests
 
-.
-
-.
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Linaria (first time)
+> - It's a good CSS-in-JS lib. Zero-runtime, styleshits generated during build.
+> - It includes theme generation and dynamic props, in the styled components way.
+> - Doesn't have an attribute for inline custom styles (like sx or cx in others libs).
+> - Some times, when writing dynamic styles, the hot-reload gets buggy.
