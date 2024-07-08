@@ -13,6 +13,7 @@ export default function Login() {
     if (isConnected) {
       router.push('/transfer');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConnected]);
 
   return (

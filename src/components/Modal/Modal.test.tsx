@@ -3,11 +3,14 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 const onClose = vi.fn();
+const Component = (
+  <Modal opened={true} title="Title" onClose={onClose}>
+    Test
+  </Modal>
+);
 
 describe('Modal', () => {
-  render(<Modal opened={true} title="Title" onClose={onClose}>
-    Test
-         </Modal>);
+  render(Component);
 
   it('should render the modal opened', () => {
     screen.getByTestId('modal');

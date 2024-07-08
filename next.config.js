@@ -8,6 +8,7 @@ const nextConfig = {
       net: false,
       tls: false,
     };
+    config.externals.push('pino-pretty', 'encoding');
     return config;
   },
 };
