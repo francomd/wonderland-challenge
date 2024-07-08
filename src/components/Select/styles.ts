@@ -14,6 +14,7 @@ export const SSelect = withTheme(styled.select<Theme>`
   margin: 0;
   box-shadow: 4px 4px 0 0 ${({ theme }) => theme.color.primary};
   will-change: transform;
+  transition: transform 0.2s;
 
   background-image: url("data:image/svg+xml;utf8,<svg fill='%23192d55' height='40' viewBox='0 0 40 40' width='40' xmlns='http://www.w3.org/2000/svg'><path d='m13.6 18.6 5.6 5.6c0.4 0.4 1.2 0.4 1.6 0l5.6-5.6c0.7-0.7 0.2-1.9-0.8-1.9h-11.2c-1 0-1.5 1.2-0.8 1.9z'/><path fill='none' d='M0,0h40v40H0V0z'/></svg>");
   background-repeat: no-repeat;

@@ -10,7 +10,10 @@ export const SInput = withTheme(styled.input<Theme>`
   font-size: 1rem;
   margin: 0;
   box-shadow: 4px 4px 0 0 ${({ theme }) => theme.color.primary};
-  will-change: transform;
+  will-change: transform, background-color;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
   width: 100%;
 
   &:disabled {
@@ -22,9 +25,7 @@ export const SInput = withTheme(styled.input<Theme>`
   }
 
   &:hover:not(:disabled) {
-    &:not(:active) {
-      background-color: ${({ theme }) => theme.color.backgroundLight};
-    }
+    background-color: ${({ theme }) => theme.color.backgroundLight};
 
     transform: scale(1.025);
     & + button {

@@ -18,6 +18,7 @@ export const SButton = withTheme(styled.button<Theme>`
     box-shadow: 4px 4px 0 0 ${({ theme }) => theme.color.primary} !important;
     font-weight: 600;
     will-change: transform;
+    transition: transform 0.2s;
     margin: 0 !important;
 
     &:hover:not(:disabled):not(:active) {
