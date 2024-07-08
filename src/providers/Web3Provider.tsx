@@ -14,8 +14,8 @@ import { polygonMumbai, sepolia } from 'wagmi/chains';
 export const config = getDefaultConfig({
   chains: [sepolia, polygonMumbai],
   transports: {
-    [sepolia.id]: http('https://sepolia.infura.io/v3/', { key: process.env.NEXT_PUBLIC_INFURA_ETHEREUM_SEPOLIA_API_KEY || '' }),
-    [polygonMumbai.id]: http('https://api-testnet.polygonscan.com/api'),
+    [sepolia.id]: http(`https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ETHEREUM_SEPOLIA_API_KEY || ''}`),
+    [polygonMumbai.id]: http('https://polygon-mumbai.api.onfinality.io/public'),
   },
   ssr: true,
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
