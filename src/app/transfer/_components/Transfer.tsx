@@ -136,7 +136,7 @@ export default function Transfer() {
       setNotification({
         type: 'error',
         message: 'Please connect to the correct network',
-        timeout: 5000,
+        timeout: 0,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
