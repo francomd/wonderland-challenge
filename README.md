@@ -45,7 +45,7 @@ Bonuses:
 
 
 ### Linaria (first time)
-> - It's a good CSS-in-JS lib. Zero-runtime, styleshits generated during build.
+> - It's a good CSS-in-JS lib. Zero-runtime, stylesheets generated during build.
 > - It includes theme generation and dynamic props, in the styled components way.
 > - Doesn't have an attribute for inline custom styles (like sx or cx in others libs).
 > - Some times, when writing dynamic styles, the hot-reload gets buggy.
